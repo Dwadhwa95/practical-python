@@ -11,21 +11,36 @@ extra_payment_end_month = 0
 extra_payment = 0
 
 extra_payment_start_month = input('Please enter extra payment start month:')
+print(extra_payment_start_month)
 extra_payment_end_month = input('Please enter extra payment end month:')
-extra_payment = input('Please enter extra payment amount:')
+print(extra_payment_end_month)
+extra_payment_amount = input('Please enter extra payment amount:')
+print(extra_payment_amount)
 
 while principal >0: 
-    if months >= extra_payment_start month and months < extra_payment_end_month + 1:
+    if months >= int(extra_payment_start_month and months) < int(extra_payment_end_month) + 1 and principal > monthly_payment:
       principal = principal * (1+(0.05/12))
-      principal = principal - (monthly_payment + extra_payment) 
-      total = total + monthly_payment + extra_payment
+      principal = principal - (monthly_payment + int(extra_payment_amount)) 
+      total = total + monthly_payment + int(extra_payment_amount)
       months = months + 1 
+      print(months, ' ', total, ' ', principal)
+
+    elif principal <= monthly_payment:
+     
+      principal = principal * (1+(0.05/12))
+      monthly_payment = principal	
+      principal = principal - monthly_payment 
+      total = total + monthly_payment
+      months = months + 1 
+      print(months, ' ', total, ' ', principal)
+	
     else:
       principal = principal * (1+(0.05/12))
       principal = principal - monthly_payment 
       total = total + monthly_payment
       months = months + 1 
+      print(months, ' ', total, ' ', principal)
     
   
-print(total) 
-print(months)
+#print(total) 
+#print(months)
