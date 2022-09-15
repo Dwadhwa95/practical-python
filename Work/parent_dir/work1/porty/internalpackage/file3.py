@@ -1,0 +1,2 @@
+def bnm():
+	print('bnm')

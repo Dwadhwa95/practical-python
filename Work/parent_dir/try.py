@@ -20,6 +20,10 @@ for name, shares, price in portfolio:
     except KeyError:
         print("Exception on", name)
 
+from collections import deque
+history = deque(maxlen = N)
+with open
+
 print(number_of_shares)
 print(type(number_of_shares))
 print(holdings)

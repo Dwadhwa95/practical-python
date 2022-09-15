@@ -1,11 +1,19 @@
 # pcost.py
 #
-# Exercise 1.27
+# Exercise 1.27 
+import fileparse 
 
-def portfolio_cost(filename):  					#calculates the total value of your portfolio by multiplying number of shares by price. 
 
-	total = 0
-	file = open(filename, 'rt') 				#opens the file
+def total_value(filename):
+	list_of_stocks = fileparse.read_portfolio(filename, columns_select = ['name', 'shares', 'price'], types = [str, int, float], delimiter = ',', has_headers = True, silence_errors = False)
+	cost = sum([s.cost for s in list_of_stocks])
+		
+	return cost
+
+
+
+	'''file = open(filename, 'rt') 				#opens the file
+
 	headers = next(file)	
 	print(headers)
 	headers = headers.strip()
@@ -20,10 +28,14 @@ def portfolio_cost(filename):  					#calculates the total value of your portfoli
 			price = float(dict_of_prices['price'])	 
 			total = total + (number_of_shares)*(price) 				#multiplies share price to share number and adds them to total 
 		except ValueError:
-			print("Missing data in line ", lineno, ". Continuing with the rest of the file and skipping:", line)
+			print("Missing data in line ", lineno, ". Continuing with the rest of the file and skipping:", line)'''
 
-	file.close()	
-	return total	
 
-cost = portfolio_cost('Data/portfoliodate.csv')
-print(cost)
+def main(argv):
+	Total = total_value(argv[1])
+	print(Total)
+
+if __name__ == '__main__':
+	import sys
+	main(sys.argv)
+
